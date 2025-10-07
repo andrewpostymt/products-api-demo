@@ -16,12 +16,8 @@ jobs:
         run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
       - name: Run API tests
         run: |
-          postman collection run 
-            "48857933-847baf29-1821-4184-be53-ffaf87f7506c" -e 
-            "48857933-97269331-f882-4355-8550-43414e3062fa"
-            --integration-id "181557-${{ github.run_id }}"
+          postman collection run "48857933-847baf29-1821-4184-be53-ffaf87f7506c" -e "48857933-97269331-f882-4355-8550-43414e3062fa" --integration-id "181557-${{ github.run_id }}"
       # Lint your SPEC using Postman CLI
       - name: Lint Spec
         run: |
-          postman spec lint fcb5cb75-0011-4be4-bd63-c487a6e2f065
-          --integration-id 181557
+          postman spec lint fcb5cb75-0011-4be4-bd63-c487a6e2f065 --integration-id 181557
